@@ -1,0 +1,1 @@
+// no se utiliza ya que el index.html es estático

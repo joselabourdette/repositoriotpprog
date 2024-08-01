@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/contacto.css">
+  <title>Contacto</title>
+</head>
+
+<body>
+  <header> <!-- Este es el encabezado de todas las paginas -->
+    <img class="logo" src="./imagenes/logo.png" alt="Logo Supermercado ">
+    <h1>SUPERMERCADO SANTA CLARA</h1>
+    <nav>
+      <ul>
+        <li class="iconoInicio"><a class="enlace" href="../index.html">Inicio</a></li>
+        <li class="iconoCarrito"><a class="enlace" href="../productos/productos.html">Productos</a></li>
+        <li class="iconoContacto"><a class="enlace" href="./contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <div class="contenedor">
+      <div class="formulario">
+        <h2>Contactate con nosotros</h2>
+        <h3>Personalmente</h3>
+        <p> Encontranos en Punta Lara 552 - Santa Clara del Mar - Provincia de Buenos Aires <span><a class="enlace"
+              href="../links/mapa.html">Como llegar</a></span></p>
+        <h3>Telefónicamente</h3>
+        <p>0810-555-2525</p>
+        <h3>Vía Web</h3>
+        <p>Completando el Formulario =========>>>>>>>>>>>>>>>>>></p>
+
+        <img class="imagenCentrada" src="./imagenes/logo.png" alt="Logo Supermercado Santa Clara">
+        <h2><span><img src="./imagenes/carrito2.jpg" alt="Carrito de Supermercado"></span> Siempre cerca tuyo <span><img
+              src="./imagenes/carrito2.jpg" alt="Carrito de Supermercado"></span></h2>
+      </div>
+
+      <div class="formulario" id="formularioContacto">
+        <h2>Formulario de contacto</h2>
+        <h3>Escríbenos y en breve nos pondremos en contacto contigo</h3>
+        <form action="" id="formDeContacto">
+          <p><label for="nombre">Nombre <span class="obligatorio">*</span> </label>
+            <input type="text" pattern="[a-zA-Z]+" id="nombre" placeholder="Escribe tu nombre" required>
+          </p>
+
+          <p><label for="email">Email <span class="obligatorio">*</span> </label>
+            <input type="email" id="email" placeholder="Escribe tu Email" required>
+          </p>
+
+          <p><label for="telefono">Teléfono </label>
+            <input type="number" id="telefono" placeholder="Escribe tu teléfono">
+          </p>
+
+          <p><label for="asunto">Asunto <span class="obligatorio">*</span> </label>
+            <input type="text" id="asunto" placeholder="Escribe un asunto" required>
+          </p>
+
+          <p><label for="mensaje">Mensaje <span class="obligatorio">*</span> </label>
+            <textarea name="introducirMensaje" id="mensaje" placeholder="Deja aquí tu comentario..."
+              required></textarea>
+          </p>
+
+          <button type="submit" id="enviar">
+            <p>ENVIAR</p>
+          </button>
+
+          <p class="aviso"> <span class="obligatorio"> * </span>los campos son obligatorios. </p>
+          <p id="alerta" class="invisible">Por favor, complete todos los campos obligatorios.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <footer> <!-- Este es el pie de todas las paginas -->
+    <nav>
+      <p>Conoce mas en <a class="enlace" href="../links/desarrolladores.html">Acerca de ...</a>
+        <a class="enlace" href="../links/legales.html">Legales</a>
+        <a class="enlace" href="../links/mapa.html">Como llegar</a>
+      </p>
+      <p>Recorre nuestro sitio <a class="enlace" href="../index.html">Inicio</a>
+        <a class="enlace" href="../productos/productos.html">Productos</a>
+        <a class="enlace" href="./contacto.html">Contacto</a>
+      </p>
+      <p>© 2024 Desarrolladores S.A. Todos los derechos reservados.</p>
+    </nav>
+  </footer>
+
+  <!-- Este script permite guardar la informacion del formulario en txt -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"
+    integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="./js/contacto.js"></script>
+</body>
+
+</html>
