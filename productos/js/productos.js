@@ -7,84 +7,106 @@ let arrCant = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let arrTotal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let varTotal = 0;
 
+document.addEventListener("DOMContentLoaded", function() {    
+  let contenedor2 = document.getElementById('contenedor2');   
+  
+  arrProductos.forEach((producto, i) => {   
+      let card = document.createElement('div'); 
+      card.classList.add('card');  
 
-document.addEventListener("DOMContentLoaded", function () {
-  let contenedor2 = document.getElementById('contenedor2');
+      let img = document.createElement('img'); 
+      img.classList.add('imgProducto'); 
+      img.src = `./imagenes/${producto.toLowerCase().replace(/ /g, '')}.png`; 
+      img.alt = producto; 
 
-  arrProductos.forEach((producto, i) => {
-    let card = document.createElement('div');
-    card.classList.add('card');
+      let h4 = document.createElement('h4'); 
+      h4.classList.add('nombreProducto'); 
+      h4.textContent = producto; 
 
-    let img = document.createElement('img');
-    img.classList.add('imgProducto');
-    img.src = `./imagenes/${producto.toLowerCase().replace(/ /g, '')}.png`;
-    img.alt = producto;
+      let pPrecio = document.createElement('p'); 
+      pPrecio.innerHTML = `$ <span class="precioProducto">${arrPrecios[i]}</span>`; 
 
-    let h4 = document.createElement('h4');
-    h4.classList.add('nombreProducto');
-    h4.textContent = producto;
+      let h6 = document.createElement('h6'); 
+      h6.innerHTML = `Stock disponible <span class="stockDisponible">${arrStock[i]}</span> u.`; 
 
-    let pPrecio = document.createElement('p');
-    pPrecio.innerHTML = `$ <span class="precioProducto">${arrPrecios[i]}</span>`;
+      let pCantidad = document.createElement('p'); 
+      pCantidad.innerHTML = `Cantidad: <input type="number" name="cant" id="cant${i}" min="0" value="0">`;
 
-    let h6 = document.createElement('h6');
-    h6.innerHTML = `Stock disponible <span class="stockDisponible">${arrStock[i]}</span> u.`;
+      let boton = document.createElement('button');  
+      boton.type = 'button'; 
+      boton.classList.add('boton');  
+      boton.id = `boton${i}`; 
+      boton.textContent = 'Comprar'; 
 
-    let pCantidad = document.createElement('p');
-    pCantidad.innerHTML = `Cantidad: <input type="number" id="cant${i}" min="0" value="0">`;
-
-    let boton = document.createElement('button');
-    boton.type = 'button';
-    boton.classList.add('boton');
-    boton.id = `boton${i}`;
-    boton.textContent = 'Comprar';
-
-       
-
-    card.appendChild(img);
-    card.appendChild(h4);
-    card.appendChild(pPrecio);
-    card.appendChild(h6);
-    card.appendChild(pCantidad);
-    card.appendChild(boton);
-    contenedor2.appendChild(card);
+      card.appendChild(img); 
+      card.appendChild(h4);  
+      card.appendChild(pPrecio);
+      card.appendChild(h6);
+      card.appendChild(pCantidad);
+      card.appendChild(boton);
+      contenedor2.appendChild(card); 
   });
 
 
 
-  document.querySelectorAll('.boton').forEach((boton, i) => {
-    boton.addEventListener('click', () => {
-      let cantidad = document.querySelector(`#cant${i}`).value;
-      cantidad = Number(cantidad);
-
-      if (cantidad > 0 && (arrStock[i] - cantidad) >= 0) {
-        arrCant[i] = arrCant[i] + cantidad;
-        arrStock[i] = arrStock[i] - cantidad;
-        document.querySelector(`#cant${i}`).value = 0;
-        document.querySelectorAll('.stockDisponible')[i].textContent = arrStock[i];
-        comprar();
-      } else {
-        alert("Ingrese una cantidad mayor a 0 o dentro del stock");
-        document.querySelector(`#cant${i}`).value = 0;
-      }
-    });
+document.querySelectorAll('.boton').forEach((boton, i) => {   
+  boton.addEventListener('click', () => {   
+    let cantidad = document.querySelector(`#cant${i}`).value;  
+    cantidad = Number(cantidad); 
+    
+    if (cantidad > 0 && (arrStock[i] - cantidad) >= 0) { 
+      arrCant[i] = arrCant[i] + cantidad;   
+      arrStock[i]=arrStock[i] - cantidad; 
+      document.querySelector(`#cant${i}`).value = 0; 
+      document.querySelectorAll('.stockDisponible')[i].textContent = arrStock[i]; 
+      comprar();  
+    } else {    
+      //alert("Ingrese una cantidad mayor a 0 o dentro del stock");
+      let alerta= document.getElementById('alerta');
+      alerta.classList.remove('invisible');
+      alerta.classList.add('visible');
+      document.querySelector(`#cant${i}`).value = 0; 
+      setTimeout(() => {
+        alerta.classList.remove("visible");
+        alerta.classList.add("invisible");
+      }, 3000);
+    }
   });
+});
 });
 
 function comprar() {
-  varTotal = 0;
-  arrPrecios.forEach((precio, i) => {
-    arrTotal[i] = precio * arrCant[i];
-    varTotal += arrTotal[i];
-  });
-  console.log(varTotal);
-  document.getElementById("total").innerHTML = varTotal;
-  alert("Compra confirmada. Agregue más productos o finalice la compra.");
+  varTotal = 0; 
+      arrPrecios.forEach((precio, i) => {
+      arrTotal[i] = precio * arrCant[i];
+      varTotal += arrTotal[i];
+    });
+  
+  document.getElementById("total").innerHTML = varTotal;  
+  //alert("Compra confirmada. Agregue más productos o finalice la compra.");
+  let exito= document.getElementById('exito');
+      exito.classList.remove('invisible');
+      exito.classList.add('visible2');
+      setTimeout(() => {
+        exito.classList.remove("visible2");
+        exito.classList.add("invisible");
+      }, 3000);
 }
 
-let finalizar = document.getElementById('finalizarCompra')
-finalizar.addEventListener('click', () => {
-  alert(`Su compra por el valor de $ ${varTotal} a finalizado. Su pedido está en camino. ¡Gracias por su compra!`);
-  varTotal = 0;
+let finalizar=document.getElementById('finalizarCompra')
+finalizar.addEventListener('click', () => { 
+  //alert(`Su compra por el valor de $ ${varTotal} a finalizado. Su pedido está en camino. ¡Gracias por su compra!`);
+  let finalizada= document.getElementById('finalizada');
+      finalizada.classList.remove('invisible');
+      finalizada.classList.add('visible3');
+      setTimeout(() => {
+        finalizada.classList.remove("visible3");
+        finalizada.classList.add("invisible");
+      }, 3000);
+      varTotal = 0;
   document.getElementById("total").innerHTML = varTotal;
 })
+
+
+
+

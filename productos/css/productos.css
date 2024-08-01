@@ -66,11 +66,12 @@ a {
   background-color: #d6c6e6;
 }
 
+
 body {
   width: auto;
   height: 100%;
   font-family: sans-serif, Verdana, Geneva, Tahoma;
-  background-image: url("../imagenes/frente.jpg");
+  background-image: url("../imagenes/frente.jpg"); 
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -124,12 +125,12 @@ section h3 {
 }
 
 .imgProducto {
-width: 50%;
-margin: 5px;
+  width: 50%;
+  margin: 5px;
 }
 
 input {
-  background-color: #fbfbfb;
+   background-color: #fbfbfb;
   width: 80px;
   height: 40px;
   border: 1px solid #b1822c;
@@ -167,27 +168,132 @@ button {
 
 button p {
   color: #fff;
+
 }
 
 button:hover {
   background-color: #f7c15d;
 }
 
-.derecho {
+.invisible {
+  visibility: hidden;
   position: fixed;
-  bottom: 180px;
+  bottom: 400px;
   right: 30px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   width: 160px;
-  height: 200px;
+  height: 100px;
+  margin-right: 10px;
+  border: 20px solid hsla(0, 89%, 50%, 0.918);
+  border-radius: 10px;
+  background-color: #fbfbfb;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
+
+.visible {
+  visibility: visible;
+  position: fixed;
+  bottom: 400px;
+  right: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 160px;
+  height: 100px;
+  margin-right: 10px;
+  border: 20px solid hsla(0, 89%, 50%, 0.918);
+  border-radius: 10px;
+  background-color: #fbfbfb;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
+
+.visible2 {
+  visibility: visible;
+  position: fixed;
+  bottom: 400px;
+  right: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 160px;
+  height: 100px;
+  margin-right: 10px;
+  border: 20px solid greenyellow;
+  border-radius: 10px;
+  background-color: #fbfbfb;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: center;
+  align-items: center;
+  color: green;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
+
+.visible3 {
+  visibility: visible;
+  position: fixed;
+  bottom: 400px;
+  right: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 160px;
+  height: 100px;
   margin-right: 10px;
   border: 20px solid hsla(231, 55%, 41%, 0.918);
   border-radius: 10px;
   background-color: #fbfbfb;
   padding-top: 5px;
   padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: center;
+  align-items: center;
+  color: blue;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
+
+.derecho {
+  position: fixed;
+  bottom: 160px;
+  right: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 160px;
+  height: 190px;
+  margin-right: 10px;
+  border: 20px solid hsla(231, 55%, 41%, 0.918);
+  border-radius: 10px;
+  background-color: #fbfbfb;
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-left: 20px;
   padding-right: 20px;
   justify-content: right;
@@ -199,7 +305,7 @@ footer {
   border: solid 1px blue;
   border-radius: 10px;
   background-color: hsla(231, 55%, 41%, 0.918);
-  margin: 20px 10px; 
+  margin: 20px 10px;
 }
 
 footer nav {
